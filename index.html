@@ -3,95 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моя визитка</title>
+    <title>My Creative Space</title>
     <style>
-        /* Яркий современный фон */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle at top left, #4158D0, #C850C0, #FFCC70);
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-color: #f8fafc;
+            --accent: #38bdf8;
         }
 
-        /* Карточка с эффектом размытия (Glassmorphism) */
-        .card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            text-align: center;
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0, transparent 50%), 
+                radial-gradient(at 100% 100%, rgba(192, 38, 211, 0.15) 0, transparent 50%);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Общий стиль для всех окон */
+        .window {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px); /* Эффект матового стекла */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             width: 300px;
         }
 
-        /* Иконка вместо фото */
-        .avatar-icon {
-            font-size: 60px;
-            background: #f0f2f5;
-            width: 100px;
-            height: 100px;
-            line-height: 100px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: block;
+        .window:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px -12px rgba(56, 189, 248, 0.2);
         }
 
-        h1 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 10px;
+        /* Декоративные точки (как в macOS) */
+        .dots {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 15px;
         }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
 
-        p {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
+        h2 { margin-top: 0; color: var(--accent); font-size: 1.2rem; }
+        p { font-size: 0.95rem; line-height: 1.5; opacity: 0.9; }
 
-        /* Стильная кнопка с номером */
-        .phone-btn {
-            display: block;
-            background: #333;
-            color: white;
+        /* Кнопка телефона */
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: #000;
             text-decoration: none;
-            padding: 15px;
-            border-radius: 15px;
+            padding: 12px;
+            border-radius: 10px;
             font-weight: bold;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 15px;
+            transition: 0.3s;
         }
+        .contact-btn:hover { background: #7dd3fc; }
 
-        .phone-btn:hover {
-            background: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .phone-btn span {
-            display: block;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.8;
-            margin-bottom: 5px;
+        /* Маленькие теги для окна навыков */
+        .tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin: 3px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="avatar-icon">👤</div>
-        
-        <h1>Привет!</h1>
-        <p>Добро пожаловать на мой первый сайт. Для связи со мной нажми кнопку ниже:</p>
-        
-        <a href="tel:+996801379801" class="phone-btn">
-            <span>Позвонить мне</span>
-            +996 801 379 801
-        </a>
+    <div class="window">
+        <div class="dots">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+        </div>
+        <h2>Terminal.exe</h2>
+        <p>> Привет! Я начинающий разработчик.<br>> Это мой первый проект на GitHub.<br>> Рад видеть тебя здесь!</p>
+    </div>
+
+    <div class="window">
+        <div class="dots">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+        </div>
+        <h2>Связь</h2>
+        <p>Если у тебя есть вопросы или предложения, звони мне напрямую:</p>
+        <a href="tel:+996801379801" class="contact-btn">📞 +996 801 379 801</a>
+    </div>
+
+    <div class="window">
+        <div class="dots">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+        </div>
+        <h2>Стек технологий</h2>
+        <div class="tag">HTML5</div>
+        <div class="tag">CSS3</div>
+        <div class="tag">GitHub</div>
+        <div class="tag">UI Design</div>
+        <div class="tag">Learning...</div>
+        <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.6;">* Постоянно изучаю что-то новое</p>
     </div>
 
 </body>
